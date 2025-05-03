@@ -1,0 +1,23 @@
+package com.example.loyalty_program.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Entity
+@Table(name = "MEMBERSHIP")
+public class Membership {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private User user;
+    private LoyaltyProgram program;
+    private LocalDateTime joinDate;
+    private long pointsBalance;
+}
