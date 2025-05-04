@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "MEMBERSHIP")
-public class Membership {
+public class Membership implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

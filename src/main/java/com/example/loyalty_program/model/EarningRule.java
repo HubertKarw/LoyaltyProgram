@@ -5,12 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
 @Table(name = "EARNING_RULE")
-public class EarningRule {
+public class EarningRule implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;

@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "APPLICATION_USER")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

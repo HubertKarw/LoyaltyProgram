@@ -5,12 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
 @Table(name = "REWARD")
-public class Reward {
+public class Reward implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

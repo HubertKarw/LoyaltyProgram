@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "LOYALTY_PROGRAM")
-public class LoyaltyProgram {
+public class LoyaltyProgram implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
