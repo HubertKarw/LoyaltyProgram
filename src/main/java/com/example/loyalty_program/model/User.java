@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -30,6 +31,17 @@ public class User implements Serializable {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime registrationDate;
+//    @ManyToMany(cascade = {CascadeType.ALL})
+//    @JoinTable(
+//            name = "USER_LOYALTY_PROGRAM",
+//            joinColumns = {@JoinColumn(name ="APPLICATION_USER_ID")},
+//            inverseJoinColumns = {@JoinColumn(name = "LOYALTY_PROGRAM_ID")}
+//    )
+//    private List<LoyaltyProgram> programs;
+    @OneToMany(mappedBy = "user")
+    private List<Membership> memberships;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<PointsTransaction> transactions;
 
 
 }

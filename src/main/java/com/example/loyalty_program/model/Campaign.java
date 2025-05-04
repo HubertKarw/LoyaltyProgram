@@ -23,5 +23,7 @@ public class Campaign implements Serializable {
     private float multiplier;
     private int extraPoints;
     private EarningEventType targetEventRule;
+    @ManyToOne
+    @JoinColumn(name = "LOYALTY_PROGRAM_ID")
     private LoyaltyProgram program;
 }

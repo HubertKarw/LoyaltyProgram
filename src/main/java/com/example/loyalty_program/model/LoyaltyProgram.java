@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +20,18 @@ public class LoyaltyProgram implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Name of the program cannot be empty")
+    @Column(unique=true)
     private String name;
     private String description;
     @Embedded
     private Period validityPeriod;
+    @OneToMany(mappedBy = "program")
+    private List<Membership> members;
+    @OneToMany(mappedBy = "program", cascade = CascadeType.ALL)
+    private List<EarningRule> earningRules;
+    @OneToMany(mappedBy = "program",cascade = CascadeType.ALL)
+    private List<Reward> rewards;
+    @OneToMany(mappedBy = "program")
+    private List<Campaign> campaigns;
+
 }

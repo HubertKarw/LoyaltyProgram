@@ -19,5 +19,11 @@ public class PointsTransaction implements Serializable {
     private TransactionType type;
     private String points;
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "APPLICATION_USER_ID")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "MEMBERSHIP_ID")
+    private Membership membership;
     private long pointsBalance;
 }

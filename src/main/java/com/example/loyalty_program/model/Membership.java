@@ -12,13 +12,18 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name = "MEMBERSHIP")
+@Table(name = "MEMBERSHIP",uniqueConstraints={@UniqueConstraint(columnNames={"APPLICATION_USER_ID", "LOYALTY_PROGRAM_ID" })})
 public class Membership implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private User memberUser;
+    @ManyToOne
+    @JoinColumn(name = "APPLICATION_USER_ID")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "LOYALTY_PROGRAM_ID")
     private LoyaltyProgram program;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "membership")
     private LocalDateTime joinDate;
     private long pointsBalance;
 }
