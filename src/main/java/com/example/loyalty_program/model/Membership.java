@@ -17,7 +17,7 @@ public class Membership implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private User user;
+    private User memberUser;
     private LoyaltyProgram program;
     private LocalDateTime joinDate;
     private long pointsBalance;
