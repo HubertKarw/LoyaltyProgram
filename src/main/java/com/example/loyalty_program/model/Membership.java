@@ -23,7 +23,7 @@ public class Membership implements Serializable {
     @ManyToOne
     @JoinColumn(name = "LOYALTY_PROGRAM_ID")
     private LoyaltyProgram program;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "membership")
+//    @OneToMany(cascade = CascadeType.ALL,mappedBy = "membership")
     private LocalDateTime joinDate;
     private long pointsBalance;
 }
